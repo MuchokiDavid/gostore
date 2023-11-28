@@ -17,7 +17,7 @@ GoStore is an online shopping web React and a public API. It allows users to bro
 1. Clone the repository:
 
     ```bash
-    git clone 
+    git clone https://github.com/MuchokiDavid/gostore.git
     ```
 
 2. Install dependencies:
