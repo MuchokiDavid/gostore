@@ -1,4 +1,3 @@
-import { Alert } from 'bootstrap';
 import React, { useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button';
 function SignUp() {
@@ -21,10 +20,11 @@ function SignUp() {
      }
  
 
-    const[loading, setLoading]= useState(false)
-    const[error, setError]= useState(null)
+    const[loading, setLoading]= useState(false);
+    const[error, setError]= useState(null);
     const pass1Ref = useRef(null);
     const pass2Ref = useRef(null);
+    const usernameRef= useRef(null);
 
     const handleSubmit = (event) => {
         
@@ -52,17 +52,26 @@ function SignUp() {
             setError(error);
             setLoading(false);
             });
-            handleClear();
+            handleClear1();
+            handleClear2();
+            alert("Saved successifully")
         }
         else{
             alert("Please confirm your password");
         }
     }
    
-
-    const handleClear= ()=> {
-        pass1Ref.current.value = "";
-        pass2Ref.current.value = "";
+    const handleClear1 = () => {
+      setUser({
+        fullname:"",
+        phonenumber:"",
+        email: "",
+        username:"",
+        password:""
+      });
+    };
+    const handleClear2= ()=> {
+      pass2Ref.current.value = "";
     }
 
     return (
@@ -116,6 +125,7 @@ function SignUp() {
                   name="username" // add name attribute
                   value={user.username} // add value attribute
                   onChange={handleOnChange}
+                  ref={usernameRef} // Add ref to the input
                 />
               </label>
               <br />
