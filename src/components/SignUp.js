@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { Alert } from 'bootstrap';
+import React, { useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button';
 function SignUp() {
 
@@ -24,13 +25,17 @@ function SignUp() {
 
     const[loading, setLoading]= useState(false)
     const[error, setError]= useState(null)
+    const pass1Ref = useRef(null);
+    const pass2Ref = useRef(null);
 
     const handleSubmit = (event) => {
         
         event.preventDefault();
         // console.log(user)
-        fetch("http://localhost:3000/users",{
-        method: "POST",    
+        if (pass1Ref.current.value === pass2Ref.current.value) {
+            setLoading(true);
+            fetch("http://localhost:3000/users",{
+            method: "POST",    
             headers:{
                 "Content-Type":"application/json"
                 },                    
@@ -50,9 +55,16 @@ function SignUp() {
             setLoading(false);
             });
             handleClear();
+        }
+        else{
+            alert("Please confirm your password");
+        }
     }
+   
+
     function handleClear(){
-        
+        pass1Ref.current.value = "";
+        pass2Ref.current.value = "";
     }
 
     return (
@@ -117,6 +129,7 @@ function SignUp() {
                 name="password" // add name attribute
                 value={user.password} // add value attribute
                 onChange={handleOnChange}
+                ref={pass1Ref} // Add ref to the input
               />
               <br />
               <label>
@@ -125,6 +138,7 @@ function SignUp() {
                   placeholder="Confirm Password"
                   id='pass2'
                   type="password"
+                  ref={pass2Ref} // Add ref to the input
                 />
               </label>
               <br />
