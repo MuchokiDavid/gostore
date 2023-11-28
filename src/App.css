@@ -37,3 +37,21 @@
     transform: rotate(360deg);
   }
 }
+.centered-container {
+  height: 100vh; /* 100% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-div {
+  width: 600px; /* Adjust the width as needed */
+  height: fit-content; /* Adjust the height as needed */
+  background-color: whitesmoke; /* Optional: Set a background color */
+  text-align: center; /* Optional: Center the content inside the div */
+}
+.profile-image{
+  width: 50%;
+  border-radius: 10px 10px 0 0;
+  margin-left:150px
+}

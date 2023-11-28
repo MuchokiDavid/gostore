@@ -41,17 +41,17 @@ function ProductList() {
   const productItems= products.map((product, index)=>{
     return (
       // 100px180
-          <Col key={product.id} xs={12} sm={6} md={4} lg={3} xl={2}>
-        <Card style={{ width: '18rem' }} key={index} >
-          <Card.Img variant="top" src={product.images[1]} alt={product.title}/>
-          <Card.Body>
-            <Card.Title>{product.title}</Card.Title>
-            <Card.Text> Ksh.
-              {product.price}
-            </Card.Text>
-            <Button variant="primary">Add To Cart</Button>
-          </Card.Body>
-        </Card>
+          <Col key={product.id} xs={12} sm={6} md={4} lg={3} xl={2} className="">
+            <Card style={{ width: '18rem' }} key={index} >
+              <Card.Img variant="top" src={product.images[1]} alt={product.title}/>
+              <Card.Body>
+                <Card.Title>{product.title}</Card.Title>
+                <Card.Text> Ksh.
+                  {product.price}
+                </Card.Text>
+                <Button variant="primary">Add To Cart</Button>
+              </Card.Body>
+            </Card>
         </Col>
     )
   })
