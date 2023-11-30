@@ -154,7 +154,7 @@ function SignUp() {
               <br />
     
               <Button variant="primary" type="submit" className="mt-3">
-                {loading ? 'Loading...' : 'Sign Up'} {/* show loading spinner */}
+                {loading ? 'Loading...' : 'Create Account'} {/* show loading spinner */}
               </Button>
             </form>
           </div>

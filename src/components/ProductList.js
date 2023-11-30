@@ -4,11 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import SearchBar from './SearchBar';
 
 function ProductList() {
   const[products, setProducts]= useState([])
   const[loading, setLoading]= useState(true)
   const[error, setError]= useState(null)
+  const[searchTerm, setSearchTerm]= useState("")
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -37,10 +40,18 @@ function ProductList() {
   if (error) {
     return <p>Error: {error}</p>;
   }
-  // console.log(products);
-  const productItems= products.map((product, index)=>{
+
+  function searchBar(searchTerm){
+    setSearchTerm(searchTerm);
+    const productFilter = products.filter(product=> {
+      return product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    })
+    setFilteredProducts(productFilter);
+  }
+  console.log(searchTerm);
+
+  const productFiltered= filteredProducts.map((product, index)=>{
     return (
-      // 100px180
           <Col key={product.id} xs={12} sm={6} md={4} lg={3} xl={2} className="">
             <Card style={{ width: '18rem' }} key={index} >
               <Card.Img variant="top" src={product.images[1]} alt={product.title}/>
@@ -55,11 +66,31 @@ function ProductList() {
         </Col>
     )
   })
+
+  const productItems= products.map((product, index)=>{
+    return (
+          <Col key={product.id} xs={12} sm={6} md={4} lg={3} xl={2} className="">
+            <Card style={{ width: '18rem' }} key={index} >
+              <Card.Img variant="top" src={product.images[1]} alt={product.title}/>
+              <Card.Body>
+                <Card.Title>{product.title}</Card.Title>
+                <Card.Text> Ksh.
+                  {product.price}
+                </Card.Text>
+                <Button variant="primary">Add To Cart</Button>
+              </Card.Body>
+            </Card>
+        </Col>
+    )
+  })
+
   return (
     <div>
+      <SearchBar searchFunc= {searchBar}/>
       <Row>
-      {productItems}
+        {searchTerm ? (productFiltered):(productItems)}
       </Row>
+      
     </div>
   )
 }
