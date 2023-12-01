@@ -1,14 +1,16 @@
 import './App.css';
 import LogIn from './components/LogIn';
+import Message from './components/Message';
 import ProductList from './components/ProductList';
 import SignUp from './components/SignUp';
 
 function App() {
   return (
     <div className="App">
-      <ProductList/>
+      {/* <ProductList/> */}
       {/* <LogIn/> */}
       {/* <SignUp /> */}
+      <Message/>
     </div>
   );
 }
