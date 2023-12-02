@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/Footer';
 import LogIn from './components/LogIn';
 import Message from './components/Message';
 import Navigation from './components/Navigation';
@@ -8,11 +9,12 @@ import SignUp from './components/SignUp';
 function App() {
   return (
     <div className="App">
-      <Navigation/>
+      {/* <Navigation/> */}
       {/* <ProductList/> */}
       {/* <LogIn/> */}
       {/* <SignUp /> */}
       {/* <Message/> */}
+      <Footer/>
     </div>
   );
 }
