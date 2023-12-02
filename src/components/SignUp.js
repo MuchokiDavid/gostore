@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+
 function SignUp() {
+
 
 
     const [user, setUser] =useState({
@@ -153,9 +156,10 @@ function SignUp() {
               </label>
               <br />
     
-              <Button variant="primary" type="submit" className="mt-3">
+              <Button variant="primary" type="submit" className="mt-3 mb-4">
                 {loading ? 'Loading...' : 'Create Account'} {/* show loading spinner */}
               </Button>
+              <p>Already have an Account? <Link to= '/login'>Log In</Link></p>
             </form>
           </div>
         </div>

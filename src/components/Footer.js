@@ -1,8 +1,5 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 function Footer() {
   const linkStyles = {
@@ -26,21 +23,22 @@ function Footer() {
   return (
     <div style={footerStyles}>
       <footer >
-      <NavLink to="/" exact style={linkStyles}>
+      <NavLink  to="/" exact = "true" style={linkStyles}>
         Home
       </NavLink>
-      <NavLink to="/cart" style={linkStyles}>
+      <NavLink  to="/cart" exact = "true" style={linkStyles}>
         Cart
       </NavLink>
-      <NavLink to="/checkout" style={linkStyles}>
+      <NavLink  to="/checkout" exact = "true" style={linkStyles}>
         Checkout
       </NavLink>
-      <NavLink to="/aboutus" style={linkStyles} >
+      <NavLink  to="/aboutus" exact = "true" style={linkStyles} >
         About Us
       </NavLink>
-      <NavLink to="/contactus" style={linkStyles} >
+      <NavLink  to="/contactus" exact = "true" style={linkStyles} >
         Contact Us
       </NavLink>
+      <hr/>
         <p style={{ color: "white" }}>&copy;2023 - gostore</p>
       </footer>
     </div>

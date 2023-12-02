@@ -1,8 +1,5 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 function Navigation() {
 
@@ -23,26 +20,22 @@ function Navigation() {
     transition: 'background 0.3s',
   };
   
-  const activeLinkStyles = {
-    background: 'lightblue',
-  };
-  
   return (
     <div style={navStyles}>
       <img src='https://i.postimg.cc/50YSR4Dd/apple-icon-precomposed-removebg-preview.png' alt='gostore'/>
-      <NavLink to="/" exact style={linkStyles}>
+      <NavLink exact to="/"  style={linkStyles}>
         Home
       </NavLink>
-      <NavLink to="/cart" style={linkStyles}>
+      <NavLink exact to="/cart" style={linkStyles}>
         Cart
       </NavLink>
-      <NavLink to="/checkout" style={linkStyles}>
+      <NavLink exact to="/checkout" style={linkStyles}>
         Checkout
       </NavLink>
-      <NavLink to="/aboutus" style={linkStyles} >
+      <NavLink exact to="/aboutus" style={linkStyles} >
         About Us
       </NavLink>
-      <NavLink to="/contactus" style={linkStyles} >
+      <NavLink exact to="/contactus" style={linkStyles} >
         Contact Us
       </NavLink>
     </div>

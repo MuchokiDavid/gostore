@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 function LogIn() {
@@ -84,6 +85,7 @@ function LogIn() {
           </label>
           <br />
           <Button variant="primary" type="submit" className='mt-3 mb-3'>Login</Button>
+          <p>Don't have an Account? <Link to= '/signup'>Sign Up</Link></p>
         </form>
       </div>
       
