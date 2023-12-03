@@ -1,30 +1,42 @@
 import './App.css';
 import Footer from './components/Footer';
 import LogIn from './components/LogIn';
-import Message from './components/Message';
-import Navigation from './components/Navigation';
-import ProductList from './components/ProductList';
 import SignUp from './components/SignUp';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,useLocation } from 'react-router-dom';
+import Contact from './pages/Contact';
+import Navigation from './components/Navigation';
+import Products from './pages/Shop';
+import About from './pages/About';
+import CheckoutPage from './pages/CheckoutPage';
+import CartPage from './pages/CartPage';
 
 function App() {
+  const location = useLocation()
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/" element={<SignUp/>} />
-        <Route exact path="/cart" element= "" />
-        <Route exact path="/checkout" element="" />
-        <Route exact path="/aboutus" element="" />
-        <Route exact path="/contactus" element="" />
+        <Route exact path="/" element="" />
+        <Route exact path="/shop" element={<Products/>} />
+        <Route exact path="/cart" element= {<CartPage/>} />
+        <Route exact path="/checkout" element={<CheckoutPage/>} />
+        <Route exact path="/aboutus" element={<About/>} />
+        <Route exact path="/contactus" element={<Contact/>} />
         <Route exact path="/login" element={<LogIn/>} />
         <Route exact path="/signup" element= {<SignUp/>} />
       </Routes>
-      {/* <Navigation/> */}
-      {/* <ProductList/> */}
-      {/* <LogIn/> */}
-      {/* <SignUp /> */}
-      {/* <Message/> */}
-      <Footer/>
+
+      {/* Condition to hide Navbar */}
+      {location.pathname !== '/shop' && location.pathname !== '/cart' && location.pathname !== '/checkout' && location.pathname !== '/aboutus' && location.pathname !== '/contactus' && location.pathname !== '/login' && location.pathname !== '/signup' && (
+          <div>
+            <Navigation/>
+            <br/>
+            <br/>
+            <br/>
+            <Footer/>
+          </div>
+        )}
+        
+
     </div>
   );
 }

@@ -33,6 +33,8 @@ function ProductList() {
     fetchData();
   }, []);
 
+
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -86,11 +88,15 @@ function ProductList() {
 
   return (
     <div>
-      <SearchBar searchFunc= {searchBar}/>
-      <Row>
-        {searchTerm ? (productFiltered):(productItems)}
-      </Row>
-      
+      <div className='bg-blue-200'>
+        <SearchBar searchFunc= {searchBar}/>
+      </div>
+      <h3>Shop</h3>
+      <div>
+        <Row>
+          {searchTerm ? (productFiltered):(productItems)}
+        </Row>
+      </div>  
     </div>
   )
 }

@@ -40,6 +40,7 @@ function Message() {
 
   return (
     <div>
+      <h3 className='mt-3 mb-3'>Reach out</h3>
       <div className="">
         <Container>
         <Form onSubmit={handleSubmit}>
@@ -70,7 +71,7 @@ function Message() {
           onChange={(event) => setMessage(event.target.value)}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button className='mb-5' variant="primary" type="submit">
         Send
       </Button>
     </Form>

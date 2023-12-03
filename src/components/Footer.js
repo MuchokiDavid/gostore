@@ -26,6 +26,9 @@ function Footer() {
       <NavLink  to="/" exact = "true" style={linkStyles}>
         Home
       </NavLink>
+      <NavLink exact to="/shop"  style={linkStyles}>
+        Shop
+      </NavLink>
       <NavLink  to="/cart" exact = "true" style={linkStyles}>
         Cart
       </NavLink>
@@ -39,7 +42,7 @@ function Footer() {
         Contact Us
       </NavLink>
       <hr/>
-        <p style={{ color: "white" }}>&copy;2023 - gostore</p>
+        <p style={{ color: "white" }}>&copy;2023 - Gotostore</p>
       </footer>
     </div>
   )

@@ -26,6 +26,9 @@ function Navigation() {
       <NavLink exact to="/"  style={linkStyles}>
         Home
       </NavLink>
+      <NavLink exact to="/shop"  style={linkStyles}>
+        Shop
+      </NavLink>
       <NavLink exact to="/cart" style={linkStyles}>
         Cart
       </NavLink>
