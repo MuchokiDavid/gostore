@@ -102,7 +102,7 @@ function ProductList() {
 
   return (
     <div>
-      <div className='bg-blue-200'>
+      <div className='mt-0'>
         <SearchBar searchFunc= {searchBar}/>
       </div>
       <h3>Shop</h3>

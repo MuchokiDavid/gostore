@@ -11,6 +11,12 @@ function Cart() {
   const [total, setTotal]= useState(0)
   const [sum, setSum] = useState(0)
   const [showNotification, setShowNotification] = useState(false);
+  // const Carts = () => {
+  //   const { cart, removeFromCart } = useCart();
+  
+  //   const handleRemove = (productId) => {
+  //     removeFromCart(productId);
+  //   };
 
   const Cards=
       <Table striped bordered hover size="sm">
@@ -24,8 +30,8 @@ function Cart() {
           <th>Action</th>
         </tr>
       </thead>
-      { cart.map((item, index) => {
-      return (<tbody id='index'>
+      { cart.map((item) => {
+      return (<tbody id={item.id}>
         <tr >
           <td><img className='h-36 ml-5' src= {`${item.images[1]}`} alt={item.title}/></td>
           <td>{item.title}</td>
@@ -37,7 +43,7 @@ function Cart() {
               name='quantity'
               onChange={(event) =>setTotal(event.target.value * item.price)}
             /></td>
-            <td><Button variant='danger' onClick={()=>{}}>Remove</Button></td>
+            <td><Button variant='danger' onClick={console.log("clicked")}>Remove</Button></td>
         </tr>
       </tbody>
       )})}

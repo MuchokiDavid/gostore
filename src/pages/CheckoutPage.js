@@ -1,6 +1,6 @@
 import React from 'react'
 import Navigation from '../components/Navigation'
-import CheckoutForm from '../components/CheckoutForm'
+import CheckoutForm from '../checkoutform/CheckoutForm'
 import Footer from '../components/Footer'
 
 function CheckoutPage() {

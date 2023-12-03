@@ -14,16 +14,19 @@ function SearchBar({searchFunc}) {
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
-      <label>
-        <input
-          type="text"
-          value={searchTerm}
-          placeholder='Search...'
-          className='block w-full mt-4 mb-4 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </label>
-      <Button variant="primary" type="submit">Submit</Button>
+        <div className='place-content-center'>
+          <label className='mb-3'>
+            <input
+              type="text"
+              value={searchTerm}
+              placeholder='Search...'
+              className='mt-1 mb-1 border-solid	border-1 border-gray-950'
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Button variant="primary" type="submit">Search</Button>
+          </label>
+      
+      </div>
     </form>
     </div>
   )
