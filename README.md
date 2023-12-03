@@ -1,4 +1,4 @@
-# GoStore
+# GoToStore
 
 GoStore is an online shopping web React and a public API. It allows users to browse and purchase products, add them to their cart, and checkout securely.
 
@@ -17,7 +17,7 @@ GoStore is an online shopping web React and a public API. It allows users to bro
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/MuchokiDavid/gostore.git
+    git clone https://github.com/MuchokiDavid/gotostore.git
     ```
 
 2. Install dependencies:
@@ -55,7 +55,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 - Public API for providing product data:  <a>fakestoreapi.com</a>
 - React for building the web app
-- Bootstrap for styling the web app
+- Bootstrap, Tailwind and CSS for styling the web app
 
 ## Author
 1. David Muchoki
