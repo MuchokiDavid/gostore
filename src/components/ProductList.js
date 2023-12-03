@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SearchBar from './SearchBar';
+import { useCart } from './CartContext';
 
 function ProductList() {
   const[products, setProducts]= useState([])
@@ -12,6 +13,7 @@ function ProductList() {
   const[error, setError]= useState(null)
   const[searchTerm, setSearchTerm]= useState("")
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     async function fetchData() {
@@ -50,7 +52,7 @@ function ProductList() {
     })
     setFilteredProducts(productFilter);
   }
-  console.log(searchTerm);
+  // console.log(searchTerm);
 
   const productFiltered= filteredProducts.map((product, index)=>{
     return (
@@ -62,7 +64,7 @@ function ProductList() {
                 <Card.Text> Ksh.
                   {product.price}
                 </Card.Text>
-                <Button variant="primary">Add To Cart</Button>
+                <Button onClick={()=> addToCart(product)} variant="primary">Add To Cart</Button>
               </Card.Body>
             </Card>
         </Col>
@@ -79,7 +81,7 @@ function ProductList() {
                 <Card.Text> Ksh.
                   {product.price}
                 </Card.Text>
-                <Button variant="primary">Add To Cart</Button>
+                <Button onClick={()=> addToCart(product)} variant="primary">Add To Cart</Button>
               </Card.Body>
             </Card>
         </Col>
@@ -96,7 +98,7 @@ function ProductList() {
         <Row>
           {searchTerm ? (productFiltered):(productItems)}
         </Row>
-      </div>  
+      </div>
     </div>
   )
 }

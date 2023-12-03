@@ -9,10 +9,12 @@ import Products from './pages/Shop';
 import About from './pages/About';
 import CheckoutPage from './pages/CheckoutPage';
 import CartPage from './pages/CartPage';
+import { CartProvider } from './components/CartContext';
 
 function App() {
   const location = useLocation()
   return (
+    <CartProvider>
     <div className="App">
       <Routes>
         <Route exact path="/" element="" />
@@ -25,7 +27,7 @@ function App() {
         <Route exact path="/signup" element= {<SignUp/>} />
       </Routes>
 
-      {/* Condition to hide Navbar */}
+      {/* Condition to hide components*/}
       {location.pathname !== '/shop' && location.pathname !== '/cart' && location.pathname !== '/checkout' && location.pathname !== '/aboutus' && location.pathname !== '/contactus' && location.pathname !== '/login' && location.pathname !== '/signup' && (
           <div>
             <Navigation/>
@@ -38,6 +40,7 @@ function App() {
         
 
     </div>
+    </CartProvider>
   );
 }
 
