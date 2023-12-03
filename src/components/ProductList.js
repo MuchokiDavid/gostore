@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SearchBar from './SearchBar';
 import { useCart } from './CartContext';
+import Notification from '../context/Notification';
 
 function ProductList() {
   const[products, setProducts]= useState([])
@@ -14,6 +15,7 @@ function ProductList() {
   const[searchTerm, setSearchTerm]= useState("")
   const [filteredProducts, setFilteredProducts] = useState([]);
   const { addToCart } = useCart();
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -35,7 +37,15 @@ function ProductList() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (showNotification) {
+      const timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 2000);
 
+      return () => clearTimeout(timer);
+    }
+  }, [showNotification]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -64,7 +74,7 @@ function ProductList() {
                 <Card.Text> Ksh.
                   {product.price}
                 </Card.Text>
-                <Button onClick={()=> addToCart(product)} variant="primary">Add To Cart</Button>
+                <Button onClick={()=> {addToCart(product); setShowNotification(true);}} variant="primary">Add To Cart</Button>
               </Card.Body>
             </Card>
         </Col>
@@ -81,12 +91,14 @@ function ProductList() {
                 <Card.Text> Ksh.
                   {product.price}
                 </Card.Text>
-                <Button onClick={()=> addToCart(product)} variant="primary">Add To Cart</Button>
+                <Button onClick={()=> {addToCart(product); setShowNotification(true);}} variant="primary">Add To Cart</Button>
               </Card.Body>
             </Card>
         </Col>
     )
   })
+
+  
 
   return (
     <div>
@@ -96,6 +108,7 @@ function ProductList() {
       <h3>Shop</h3>
       <div>
         <Row>
+          {showNotification && <Notification message="Added to Cart" />}
           {searchTerm ? (productFiltered):(productItems)}
         </Row>
       </div>
