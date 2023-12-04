@@ -59,4 +59,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Author
 1. David Muchoki
-2. Christine Muriungi
+2. Michael Kiptoo
